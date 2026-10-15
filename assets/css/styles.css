@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Reformerakademin — styles.css
+   1. Design tokens (ändra färger & typsnitt HÄR)
+   2. Bas
+   3. Komponenter (nav, knappar, sektioner)
+   4. Sidspecifikt (om-oss, kontakt)
+   5. Responsivt
+   ========================================================================== */
+
+/* 1. DESIGN TOKENS ------------------------------------------------------- */
+:root {
+  /* Färger */
+  --cream: #F4EEE2;        /* primär bakgrund (beige) */
+  --paper: #FAF6EC;        /* ljusare ytor */
+  --ink: #23281F;          /* text & mörka sektioner */
+  --ink-soft: #5B5F51;     /* sekundär text */
+  --moss: #4C5B3F;         /* sekundärfärg (mossgrön) */
+  --moss-deep: #3A4530;    /* mörkare grön */
+  --blush: #C98F6E;        /* accent (varm lera) */
+  --line: #DFD8C4;         /* tunna linjer */
+
+  /* Typsnitt (byt även <link> till Google Fonts i HTML-filerna) */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Layout */
+  --wrap: 1200px;
+  --gutter: 44px;
+}
+
+/* 2. BAS ----------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.015em; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.eyebrow {
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--moss); font-weight: 700;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: 8px; background: var(--ink); color: var(--paper);
+  padding: 10px 16px; z-index: 100;
+}
+.skip-link:focus { left: 8px; }
+:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+
+/* 3. KOMPONENTER --------------------------------------------------------- */
+
+/* Knappar */
+.btn {
+  display: inline-block; padding: 13px 26px; border-radius: 2px; border: 0; cursor: pointer;
+  font: 700 13px var(--font-body); letter-spacing: .03em; text-transform: uppercase;
+}
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary:hover { background: var(--moss-deep); }
+.btn-light { background: var(--paper); color: var(--ink); }
+.btn-blush { background: var(--blush); color: var(--ink); }
+
+/* Navigation */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(244, 238, 226, .92); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 82px; }
+.logo { font-family: var(--font-display); font-weight: 600; font-size: 20px; }
+.nav-links { display: flex; gap: 38px; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--moss); }
+.nav-toggle { display: none; background: none; border: 1px solid var(--ink); padding: 8px 14px; font: 600 12px var(--font-body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; color: var(--ink); }
+.nav-cta { display: inline-block; }
+
+/* Hero */
+.hero { padding: 100px 0 0; border-bottom: 1px solid var(--line); }
+.hero-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; }
+.hero h1 { font-size: clamp(44px, 8vw, 112px); line-height: .96; font-weight: 600; }
+.hero h1 em { font-style: italic; font-weight: 500; color: var(--moss); }
+.hero-sub { padding: 44px 0 0; }
+.hero-sub p { font-size: 17px; color: var(--ink-soft); line-height: 1.65; max-width: 460px; }
+.hero-media { position: relative; height: 480px; margin-top: 56px; overflow: hidden; border-radius: 4px; background: #DED2BC; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(35,40,31,0) 60%, rgba(35,40,31,.5) 100%); }
+.hero-media .cap { position: absolute; bottom: 24px; left: 28px; color: var(--paper); font-size: 14px; z-index: 2; font-weight: 600; }
+
+/* Bildbrytning */
+.break { position: relative; height: 64vh; min-height: 440px; overflow: hidden; }
+.break img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+/* Texten ligger uppe till höger, där bilden har tom yta (motivet sitter till vänster/mitten) */
+.break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(225deg, rgba(35,40,31,.5) 0%, rgba(35,40,31,0) 45%); }
+.break-copy { position: absolute; z-index: 2; right: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); top: 56px; max-width: 360px; }
+.break-copy .eyebrow { color: var(--blush); margin-bottom: 16px; }
+.break-copy p { font-family: var(--font-display); font-style: italic; font-size: clamp(22px, 2.6vw, 32px); color: var(--paper); line-height: 1.35; }
+
+/* Varför */
+.why { padding: 120px 0; }
+.why-top { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; margin-bottom: 8px; }
+.why-top h2 { font-size: 40px; line-height: 1.05; }
+.why-list { border-top: 1px solid var(--ink); margin-top: 40px; }
+.why-row { display: grid; grid-template-columns: 120px 1fr 1.4fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.why-row .mk { font-family: var(--font-display); font-style: italic; font-size: 15px; color: var(--blush); }
+.why-row h3 { font-size: 22px; font-weight: 600; }
+.why-row p { font-size: 15px; color: var(--ink-soft); }
+
+/* Priser */
+.pricing { background: var(--ink); color: var(--paper); padding: 120px 0; }
+.pricing .eyebrow { color: var(--blush); }
+.pricing h2 { font-size: 40px; color: var(--paper); margin: 12px 0 60px; max-width: 520px; }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(250,246,236,.14); border: 1px solid rgba(250,246,236,.14); }
+.plan { background: var(--ink); padding: 40px 32px; display: flex; flex-direction: column; }
+.plan.featured { background: var(--moss-deep); }
+.plan .tagline { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--blush); font-weight: 700; margin-bottom: 18px; }
+.plan h3 { font-size: 24px; font-weight: 600; margin-bottom: 18px; color: var(--paper); }
+.plan .price { font-family: var(--font-display); font-size: 32px; font-style: italic; margin-bottom: 26px; }
+.plan .price span { font: 400 13px var(--font-body); opacity: .6; }
+.plan ul { list-style: none; margin-bottom: 32px; flex: 1; }
+.plan li { font-size: 14px; padding: 10px 0; border-top: 1px solid rgba(250,246,236,.12); color: rgba(250,246,236,.75); }
+.plan .btn { background: var(--paper); color: var(--ink); text-align: center; }
+.plan.featured .btn { background: var(--blush); }
+
+/* Om oss-teaser (startsida) */
+.teaser { padding: 120px 0; }
+.teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.teaser h2 { font-size: 42px; line-height: 1.05; margin: 12px 0 20px; }
+.teaser p { color: var(--ink-soft); font-size: 16px; line-height: 1.7; margin-bottom: 28px; max-width: 460px; }
+.text-link { font-weight: 600; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+/* Fotoplatshållare (byt mot <img> när du har porträtt) */
+.photo-placeholder {
+  width: 100%; aspect-ratio: 5 / 4; border-radius: 4px; border: 1px dashed var(--ink-soft);
+  background: rgba(76,91,63,.05); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; color: var(--ink-soft); text-align: center; font-size: 13px;
+}
+.photo-placeholder svg { width: 34px; height: 34px; opacity: .5; }
+
+/* CTA */
+.cta { background: var(--moss-deep); color: var(--paper); padding: 120px 0; text-align: center; }
+.cta .eyebrow { color: var(--blush); }
+.cta h2 { font-size: clamp(36px, 5vw, 56px); margin: 18px 0 40px; line-height: 1; }
+.cta .btn { padding: 18px 40px; font-size: 14px; }
+
+/* Footer */
+.site-footer { background: var(--ink); color: rgba(250,246,236,.55); padding: 36px 0; font-size: 13px; }
+.site-footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.site-footer a:hover { color: var(--paper); }
+.footer-links { display: flex; gap: 24px; }
+
+/* 4. SIDSPECIFIKT -------------------------------------------------------- */
+.page-head { padding: 90px 0 60px; border-bottom: 1px solid var(--line); }
+.page-head h1 { font-size: clamp(40px, 6vw, 80px); line-height: 1; margin-top: 14px; font-weight: 600; }
+.page-head p { margin-top: 22px; font-size: 17px; color: var(--ink-soft); max-width: 560px; line-height: 1.65; }
+
+.founders { padding: 100px 0; }
+.founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.founder-card { border-top: 1px solid var(--ink); padding-top: 24px; }
+.founder-card .photo-placeholder { margin-bottom: 22px; }
+.founder-card .role { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--moss); font-weight: 700; }
+.founder-card h2 { font-size: 28px; margin: 6px 0 12px; }
+.founder-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }
+
+.contact { padding: 90px 0 120px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+.contact h2 { font-size: 36px; line-height: 1.1; margin: 12px 0 18px; }
+.contact-intro p { color: var(--ink-soft); line-height: 1.7; max-width: 380px; }
+.form { display: grid; gap: 20px; }
+.field label { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; color: var(--ink-soft); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 14px 16px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px;
+  font: 400 15px var(--font-body); color: var(--ink);
+}
+.field textarea { min-height: 150px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--moss); border-color: var(--moss); }
+.hidden { display: none; }
+
+.center-page { min-height: 62vh; display: flex; align-items: center; text-align: center; }
+.center-page h1 { font-size: clamp(40px, 6vw, 72px); margin: 14px 0 20px; }
+.center-page p { color: var(--ink-soft); margin-bottom: 32px; }
+
+/* 5. RESPONSIVT ---------------------------------------------------------- */
+@media (max-width: 900px) {
+  :root { --gutter: 22px; }
+  .nav-toggle { display: inline-block; }
+  .nav-cta { display: none; }
+  .nav-links {
+    display: none; position: absolute; top: 82px; left: 0; right: 0; flex-direction: column; gap: 0;
+    background: var(--cream); border-bottom: 1px solid var(--line);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 18px var(--gutter); border-top: 1px solid var(--line); }
+  .hero { padding-top: 56px; }
+  .hero-media { height: 300px; }
+  .why-top, .teaser-grid, .founders-grid, .contact-grid, .plans { grid-template-columns: 1fr; }
+  .why-top { gap: 16px; }
+  .why-row { grid-template-columns: 1fr; gap: 8px; }
+  /* Mobil: citatet under bilden istället för över */
+  .break { height: auto; min-height: 0; }
+  .break img { height: 340px; }
+  .break::after { display: none; }
+  .break-copy { position: static; max-width: none; background: var(--ink); padding: 32px var(--gutter); }
+  .contact-grid { gap: 40px; }
+}
