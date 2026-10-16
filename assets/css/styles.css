@@ -1003,3 +1003,79 @@ h3 {
   font-size: clamp(26px, 3vw, 34px);
   line-height: 1.2;
 }
+/* Foto i Om oss-teasern på startsidan */
+.teaser-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 4px;
+}
+/* ===== Bildbrytning med instruktörsfoto: text över betongpelaren ===== */
+@media (min-width: 1200px) {
+  .break::after {
+    background: linear-gradient(
+      270deg,
+      rgba(35, 40, 31, 0.78) 0%,
+      rgba(35, 40, 31, 0.55) 22%,
+      rgba(35, 40, 31, 0) 48%
+    );
+  }
+  .break-copy {
+    right: 48px;
+    max-width: 290px;
+  }
+}
+/* Mellanstora skärmar: texten under bilden så att ingen ansiktsdel täcks */
+@media (min-width: 901px) and (max-width: 1199px) {
+  .break {
+    height: auto;
+    min-height: 0;
+  }
+  .break img {
+    height: 420px;
+    object-position: 40% center;
+  }
+  .break::after {
+    display: none;
+  }
+  .break-copy {
+    position: static;
+    max-width: none;
+    background: var(--ink);
+    padding: 32px var(--gutter);
+  }
+}
+
+/* ===== Porträttbilder i Om oss ===== */
+.bio-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 4px;
+  background: #ded2bc;
+}
+@media (max-width: 900px) {
+  .bio-photo {
+    max-width: 420px;
+  }
+}
+/* ===== Herobild i full bredd (som bildbrytningen) ===== */
+.hero-media {
+  height: 560px;
+  border-radius: 0;
+}
+.hero-media img {
+  object-position: center 45%;
+}
+.hero-media .cap {
+  left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+}
+@media (max-width: 900px) {
+  .hero-media {
+    height: 340px;
+  }
+}
