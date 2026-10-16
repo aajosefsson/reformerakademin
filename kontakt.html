@@ -1,108 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt — Reformerakademin</title>
-  <meta name="description" content="Anmäl intresse eller ställ en fråga om våra utbildningar till Reformer-instruktör.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,600;0,9..144,780;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt — Reformerakademin</title>
+    <meta
+      name="description"
+      content="Anmäl intresse eller ställ en fråga om våra utbildningar till Reformer-instruktör."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
 
-  <header class="site-nav">
-    <div class="wrap">
-      <a href="index.html" class="logo">Reformerakademin</a>
-      <nav aria-label="Huvudmeny">
-        <div class="nav-links" id="nav-links">
+    <header class="site-nav">
+      <div class="wrap">
+        <a href="index.html" class="logo">Reformerakademin</a>
+        <nav aria-label="Huvudmeny">
+          <div class="nav-links" id="nav-links">
+            <a href="utbildningar.html">Utbildningar</a>
+            <a href="om-oss.html">Om oss</a>
+            <a href="kontakt.html" aria-current="page">Kontakt</a>
+          </div>
+        </nav>
+        <a href="kontakt.html" class="btn btn-primary nav-cta"
+          >Anmäl intresse</a
+        >
+        <button
+          class="nav-toggle"
+          aria-controls="nav-links"
+          aria-expanded="false"
+        >
+          Meny
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-head">
+        <div class="wrap">
+          <span class="eyebrow">Kontakt</span>
+          <h1>Hör av dig</h1>
+          <p>
+            Berätta lite om dig själv och vilket utbildningssteg du är
+            intresserad av, så återkommer vi så snart vi kan.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="wrap contact-grid">
+          <div class="contact-intro">
+            <span class="eyebrow">Intresseanmälan</span>
+            <h2>Redo att ta första steget?</h2>
+            <p>
+              Du förbinder dig inte till något genom att skicka formuläret. Vi
+              svarar på frågor om innehåll, datum och upplägg.
+            </p>
+            <!-- TODO: Lägg till e-post/telefon/ort här när de är bestämda -->
+          </div>
+
+          <!-- Netlify Forms: data-netlify="true" gör att Netlify fångar upp inskick automatiskt -->
+          <form
+            class="form"
+            name="kontakt"
+            method="POST"
+            action="tack.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="kontakt" />
+            <p class="hidden">
+              <label>Fyll inte i: <input name="bot-field" /></label>
+            </p>
+
+            <div class="field">
+              <label for="namn">Namn</label>
+              <input
+                id="namn"
+                name="namn"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="epost">E-post</label>
+              <input
+                id="epost"
+                name="epost"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon (valfritt)</label>
+              <input
+                id="telefon"
+                name="telefon"
+                type="tel"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="field">
+              <label for="paket">Jag är intresserad av</label>
+              <select id="paket" name="paket">
+                <option value="">Välj utbildningssteg…</option>
+                <option value="steg-1">Steg 1: Reformer Trainer</option>
+                <option value="steg-2">Steg 2: Master Trainer</option>
+                <option value="steg-3">Steg 3: Avancerad Master Trainer</option>
+                <option value="hela-utbildningen">
+                  Hela utbildningen (steg 1–3)
+                </option>
+                <option value="vet-ej">Vet inte ännu</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="meddelande">Meddelande</label>
+              <textarea id="meddelande" name="meddelande"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Skicka</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 Reformerakademin</span>
+        <div class="footer-links">
           <a href="utbildningar.html">Utbildningar</a>
           <a href="om-oss.html">Om oss</a>
-          <a href="kontakt.html" aria-current="page">Kontakt</a>
+          <a href="kontakt.html">Kontakt</a>
         </div>
-      </nav>
-      <a href="kontakt.html" class="btn btn-primary nav-cta">Anmäl intresse</a>
-      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Meny</button>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="page-head">
-      <div class="wrap">
-        <span class="eyebrow">Kontakt</span>
-        <h1>Hör av dig</h1>
-        <p>Berätta lite om dig själv och vilket utbildningssteg du är intresserad av, så återkommer vi så snart vi kan.</p>
       </div>
-    </section>
+    </footer>
 
-    <section class="contact">
-      <div class="wrap contact-grid">
-        <div class="contact-intro">
-          <span class="eyebrow">Intresseanmälan</span>
-          <h2>Redo att ta första steget?</h2>
-          <p>Du förbinder dig inte till något genom att skicka formuläret. Vi svarar på frågor om innehåll, datum och upplägg.</p>
-          <!-- TODO: Lägg till e-post/telefon/ort här när de är bestämda -->
-        </div>
-
-        <!-- Netlify Forms: data-netlify="true" gör att Netlify fångar upp inskick automatiskt -->
-        <form class="form" name="kontakt" method="POST" action="tack.html" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="kontakt">
-          <p class="hidden"><label>Fyll inte i: <input name="bot-field"></label></p>
-
-          <div class="field">
-            <label for="namn">Namn</label>
-            <input id="namn" name="namn" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="epost">E-post</label>
-            <input id="epost" name="epost" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="telefon">Telefon (valfritt)</label>
-            <input id="telefon" name="telefon" type="tel" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="paket">Jag är intresserad av</label>
-            <select id="paket" name="paket">
-              <option value="">Välj utbildningssteg…</option>
-              <option value="steg-1">Steg 1: Reformer Trainer</option>
-              <option value="steg-2">Steg 2: Master Trainer</option>
-              <option value="steg-3">Steg 3: Avancerad Master Trainer</option>
-              <option value="hela-utbildningen">Hela utbildningen (steg 1–3)</option>
-              <option value="vet-ej">Vet inte ännu</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="meddelande">Meddelande</label>
-            <textarea id="meddelande" name="meddelande"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Skicka</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <span>© 2026 Reformerakademin</span>
-      <div class="footer-links">
-        <a href="utbildningar.html">Utbildningar</a>
-        <a href="om-oss.html">Om oss</a>
-        <a href="kontakt.html">Kontakt</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
-  <script>
-    // Förvälj paket om man kom från en "Läs mer"/"Boka plats"-knapp (?paket=...)
-    (function () {
-      var p = new URLSearchParams(location.search).get('paket');
-      var sel = document.getElementById('paket');
-      if (p && sel) sel.value = p;
-    })();
-  </script>
-</body>
+    <script src="assets/js/main.js" defer></script>
+    <script>
+      // Förvälj paket om man kom från en "Läs mer"/"Boka plats"-knapp (?paket=...)
+      (function () {
+        var p = new URLSearchParams(location.search).get("paket");
+        var sel = document.getElementById("paket");
+        if (p && sel) sel.value = p;
+      })();
+    </script>
+  </body>
 </html>

@@ -20,7 +20,7 @@
   --line: #dfd8c4; /* tunna linjer */
 
   /* Typsnitt (byt även <link> till Google Fonts i HTML-filerna) */
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Montserrat", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
   /* Layout */
@@ -905,4 +905,101 @@ h3 {
   .bio-row .photo-placeholder {
     aspect-ratio: 4 / 3;
   }
+}
+/* ==========================================================================
+   Montserrat som rubriktypsnitt — storlekar och vikter justerade för det
+   (Montserrat är bredare än det tidigare typsnittet). Lägg längst ner.
+   ========================================================================== */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 6vw, 84px);
+  line-height: 1.08;
+  font-weight: 700;
+}
+.hero h1 em {
+  font-weight: 600;
+}
+.page-head h1 {
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.08;
+}
+.center-page h1 {
+  font-size: clamp(32px, 5vw, 60px);
+}
+
+.break-copy p {
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4;
+}
+.why-top h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.2;
+}
+.why-row .mk {
+  font-weight: 600;
+}
+.why-row h3 {
+  font-size: 20px;
+}
+.pricing h2 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  max-width: 760px;
+  line-height: 1.2;
+}
+.plan h3 {
+  font-size: 22px;
+}
+.teaser h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+}
+.cta h2 {
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.15;
+}
+
+.step-head h2 {
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.1;
+}
+.step h3 {
+  font-size: 18px;
+}
+.cert-note p {
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.4;
+}
+
+.story h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+}
+.bio h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.15;
+}
+.bio blockquote {
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+}
+.facts strong {
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 40px);
+}
+.contact h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
 }
