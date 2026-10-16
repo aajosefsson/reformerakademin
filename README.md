@@ -6,7 +6,8 @@ Statisk sajt (ren HTML, CSS och lite JS). Inget byggsteg, inga beroenden.
 
 ```
 reformerakademin/
-├── index.html          Startsida (hero, metod, varför, paket, om oss-teaser, CTA)
+├── index.html          Startsida (hero, metod, varför, tre steg, om oss-teaser, CTA)
+├── utbildningar.html   De tre utbildningsstegen med fullt innehåll, mål och examinering
 ├── om-oss.html         Om oss: Carola & Jenny
 ├── kontakt.html        Kontaktformulär (Netlify Forms)
 ├── tack.html           Visas efter skickat formulär
@@ -27,10 +28,10 @@ reformerakademin/
 | Byta typsnitt | 1) Välj typsnitt på fonts.google.com. 2) Byt `<link href="https://fonts.googleapis.com/...">` i varje HTML-fil. 3) Byt `--font-display` / `--font-body` i `styles.css`. |
 | Byta bild | Lägg ny bild i `assets/images/` och ändra `src="..."` i HTML:en. Håll bilder under ~300 KB (JPG, max ~1800 px bred). |
 | Lägga in porträtt på Carola & Jenny | Lägg `carola.jpg` / `jenny.jpg` i `assets/images/` och ersätt `<div class="photo-placeholder">…</div>` med en `<img>` (exempel finns som kommentar i `om-oss.html`). |
-| Ändra priser/paket | `index.html`, sektionen `id="paket"` |
+| Ändra utbildningstexterna | Korta kort: `index.html`, sektionen `id="utbildning"`. Full text: `utbildningar.html` |
 | Skriva om-oss-texter | `om-oss.html`, leta efter `TODO` |
 
-Header och footer är kopierade i varje HTML-fil. Ändrar du menyn, gör ändringen i alla fem filerna.
+Header och footer är kopierade i varje HTML-fil. Ändrar du menyn, gör ändringen i alla sex sidfilerna.
 
 ## Köra lokalt i VS Code
 
