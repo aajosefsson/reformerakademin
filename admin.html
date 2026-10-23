@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin — Reformerakademin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin">
+  <header class="admin-top">
+    <div class="wrap">
+      <span class="logo">Reformerakademin <span class="admin-tag">Admin</span></span>
+      <div class="admin-top-right" id="top-right" hidden>
+        <a href="index.html" target="_blank" rel="noopener">Visa sidan</a>
+        <button type="button" class="link-btn" id="logout">Logga ut</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap admin-main">
+    <!-- Inloggning -->
+    <section class="login" id="login" hidden>
+      <h1>Logga in</h1>
+      <form id="login-form">
+        <div class="field">
+          <label for="email">E-post</label>
+          <input id="email" type="email" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Lösenord</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </div>
+        <p class="msg" id="login-msg" role="alert"></p>
+        <div class="login-actions">
+          <button type="submit" class="btn btn-primary">Logga in</button>
+          <button type="button" class="link-btn" id="reset">Glömt lösenord?</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Redigering -->
+    <section id="editor" hidden>
+      <h1>Ändra innehåll</h1>
+      <p class="lead">Ändringarna syns på sidan direkt efter att du tryckt Spara. Lämnar du ett fält som det är används texten som redan finns på sidan.</p>
+      <form id="editor-form"></form>
+    </section>
+
+    <p class="msg" id="loading">Laddar…</p>
+  </main>
+
+  <div class="savebar" id="savebar" hidden>
+    <div class="wrap">
+      <span class="msg" id="save-msg" role="status"></span>
+      <button type="button" class="btn btn-primary" id="save">Spara ändringar</button>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -1221,3 +1221,32 @@ h3 {
   color: var(--moss-deep);
   border-bottom-color: var(--moss-deep);
 }
+/* ===== Innehåll som styrs från adminsidan ===== */
+.site-banner {
+  background: var(--blush);
+  color: var(--moss-deep);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px var(--gutter);
+}
+.site-banner a {
+  margin-left: 12px;
+  color: var(--moss-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.plan-price {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.step-price {
+  margin-top: 24px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.step-price + .next-date {
+  margin-top: 12px;
+}
