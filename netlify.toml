@@ -1,6 +1,8 @@
 # Netlify-konfiguration. Sajten är ren HTML/CSS/JS — inget bygge behövs.
 [build]
   publish = "."
+      [build.environment]
+  SECRETS_SCAN_SMART_DETECTION_OMIT_VALUES = "AIzaSyAYCuxxQoMwSZA2pl-EP3EC0DnEQaQi11w"
 
 # Cacha statiska filer länge (filnamnen byts när innehållet byts)
 [[headers]]
